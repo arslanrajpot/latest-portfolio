@@ -21,7 +21,7 @@ const experiences = [
   {
     company: 'Coding Cops',
     role: 'Associate Software Engineer',
-    date: 'March 2024 – Jan 2025',
+    date: 'Sep 2023 – Jan 2025',
     description: [
       'Developed and maintained full-stack web applications using Django (REST Framework) for backend and ReactJS for frontend.',
       'Designed and integrated RESTful APIs to enable efficient communication between frontend and backend systems.',
