@@ -6,29 +6,42 @@ const Content = motion(StyledContent);
 
 const experiences = [
   {
+    company: 'Kintetic Intelligence',
+    role: 'Senior Software Engineer',
+    date: 'Jan 2026 – Present',
+    description: [
+      'Engineered full-stack features using Django and ReactJS for a US-based security and investigations SaaS platform in a distributed remote team.',
+      'Shipped production-ready Generative AI capabilities, including LLM-powered case analysis workflows and prompt pipelines that reduced manual analyst effort.',
+      'Designed high-throughput REST APIs with sub-100ms response targets for complex investigative data queries at scale.',
+      'Improved API performance by 40% by introducing Redis caching, query optimization, and targeted indexing.',
+      'Raised engineering quality through rigorous PR reviews, clean architecture patterns, and async cross-timezone collaboration.',
+    ],
+    technologies: ['Django', 'ReactJS', 'Python', 'Redis', 'PostgreSQL', 'LLMs', 'Prompt Engineering', 'REST APIs'],
+  },
+  {
     company: 'Inovaqo',
     role: 'Full Stack Software Engineer',
-    date: 'Jan 2025 – Present',
+    date: 'Jan 2025 – Jan 2026',
     description: [
-      'Designed and developed full-stack applications with a backend focus using Django REST Framework and FastAPI, and ReactJS for interactive, scalable frontends.',
-      'Built and optimized RESTful APIs, database models, and caching layers to ensure secure, high-performance system integration.',
-      'Engineered AI-driven features including LLM-powered chatbots, RAG pipelines, and intelligent search systems by integrating LangChain, LangGraph, and vector databases.',
-      'Implemented Agentic AI workflows with multi-agent orchestration, enabling autonomous task execution and decision support across applications.',
-      'Collaborated with product, AI, and frontend teams to deliver production-ready GenAI solutions with seamless UI/UX and scalable cloud deployment.',
+      'Architected a multi-tenant SaaS backend with Django REST Framework and FastAPI using isolated customer environments and role-based access control.',
+      'Built async background processing with Celery and Redis, plus real-time bidirectional features through Django Channels (WebSockets).',
+      'Integrated Stripe, Plaid, and Twilio into production APIs while enforcing security with JWT and Google OAuth2.',
+      'Delivered a 35% API performance improvement through query profiling, selective indexing, and layered Redis caching.',
+      'Built RAG-powered intelligent search with LangChain and Pinecone, and created multi-agent workflows in LangGraph for research automation.',
     ],
-    technologies: ['Python', 'Django REST Framework', 'FastAPI', 'ReactJS', 'LangChain', 'LangGraph', 'PostgreSQL', 'RAG Pipelines', 'LLM Integration'],
+    technologies: ['Django REST Framework', 'FastAPI', 'Celery', 'Redis', 'Django Channels', 'LangChain', 'LangGraph', 'Pinecone', 'AWS'],
   },
   {
     company: 'Coding Cops',
     role: 'Associate Software Engineer',
-    date: 'Sep 2023 – Jan 2025',
+    date: 'Feb 2023 – Jan 2025',
     description: [
-      'Developed and maintained full-stack web applications using Django (REST Framework) for backend and ReactJS for frontend.',
-      'Designed and integrated RESTful APIs to enable efficient communication between frontend and backend systems.',
-      'Implemented state management in React to enhance application performance, scalability, and maintainability.',
-      'Collaborated with cross-functional teams to deliver responsive, interactive, and user-friendly web applications.',
+      'Delivered 5+ client-facing full-stack web applications end-to-end using Django REST Framework and ReactJS.',
+      'Designed normalized relational schemas and REST API contracts supporting scalable architecture and clean frontend-backend separation.',
+      'Standardized React state management patterns and API response structures to improve maintainability and frontend performance.',
+      'Collaborated in Agile teams across sprint planning, code reviews, and stakeholder demos while consistently delivering on time.',
     ],
-    technologies: ['Python', 'Django REST Framework', 'ReactJS', 'JavaScript', 'RESTful APIs', 'State Management'],
+    technologies: ['Django REST Framework', 'ReactJS', 'PostgreSQL', 'MySQL', 'REST API Design', 'Agile/Scrum'],
   },
 ];
 

@@ -3,31 +3,38 @@ import { motion } from 'framer-motion';
 import { Container, Content as StyledContent, SectionTitle, SkillsGrid, SkillCard, SkillIcon, SkillName, TechStack } from './styles';
 import { 
   SiReact, 
-  SiNodedotjs, 
   SiJavascript, 
   SiMongodb, 
   SiMysql,
+  SiPostgresql,
   SiPython,
-  SiExpress,
   SiGit,
+  SiDocker,
+  SiAmazonaws,
+  SiRedis,
+  SiDjango,
+  SiFastapi,
+  SiFlask,
 } from 'react-icons/si';
-// import { FaJava } from 'react-icons/fa';
+import { FaJava } from 'react-icons/fa';
 
 const Content = motion(StyledContent);
 
 const skills = [
-  { name: 'Python', icon: SiPython, level: 90, color: '#3776AB' },
-  { name: 'Django', icon: SiPython, level: 85, color: '#092E20' },
-  { name: 'FastAPI', icon: SiPython, level: 85, color: '#009688' },
-  { name: 'React', icon: SiReact, level: 85, color: '#61DAFB' },
-  { name: 'Node.js', icon: SiNodedotjs, level: 80, color: '#339933' },
+  { name: 'Python', icon: SiPython, level: 92, color: '#3776AB' },
   { name: 'JavaScript', icon: SiJavascript, level: 90, color: '#F7DF1E' },
-  { name: 'PostgreSQL', icon: SiMysql, level: 85, color: '#336791' },
-  { name: 'MySQL', icon: SiMysql, level: 80, color: '#4479A1' },
-  { name: 'MongoDB', icon: SiMongodb, level: 75, color: '#47A248' },
-  { name: 'LangChain', icon: SiPython, level: 80, color: '#1C3C3C' },
-  { name: 'Express', icon: SiExpress, level: 80, color: '#000000' },
-  { name: 'Git', icon: SiGit, level: 85, color: '#F05032' },
+  { name: 'Java', icon: FaJava, level: 75, color: '#007396' },
+  { name: 'Django / DRF', icon: SiDjango, level: 88, color: '#092E20' },
+  { name: 'FastAPI', icon: SiFastapi, level: 88, color: '#009688' },
+  { name: 'Flask', icon: SiFlask, level: 78, color: '#000000' },
+  { name: 'ReactJS', icon: SiReact, level: 86, color: '#61DAFB' },
+  { name: 'PostgreSQL', icon: SiPostgresql, level: 86, color: '#336791' },
+  { name: 'MySQL', icon: SiMysql, level: 82, color: '#4479A1' },
+  { name: 'MongoDB', icon: SiMongodb, level: 78, color: '#47A248' },
+  { name: 'Redis', icon: SiRedis, level: 84, color: '#DC382D' },
+  { name: 'AWS', icon: SiAmazonaws, level: 82, color: '#FF9900' },
+  { name: 'Docker', icon: SiDocker, level: 82, color: '#2496ED' },
+  { name: 'Git', icon: SiGit, level: 88, color: '#F05032' },
 ];
 
 const containerVariants = {
@@ -95,14 +102,31 @@ export const Skills: React.FC = () => {
           <TechStack>
             <h3>Additional Technologies</h3>
             <div className="tech-list">
+              <span>HTML / CSS / MUI</span>
+              <span>Django Channels (WebSockets)</span>
+              <span>Celery</span>
               <span>LangChain & LangGraph</span>
-              <span>LLM Integration</span>
               <span>RAG Pipelines</span>
+              <span>Prompt Engineering</span>
+              <span>LLM Integration</span>
               <span>Agentic AI</span>
-              <span>Vector Databases</span>
-              <span>RESTful APIs</span>
-              <span>Django REST Framework</span>
-              <span>FastAPI</span>
+              <span>Multi-Agent Systems</span>
+              <span>Pinecone & FAISS</span>
+              <span>LLaMA & Gemini</span>
+              <span>Groq API</span>
+              <span>JWT / OAuth2 / Google OAuth2</span>
+              <span>Stripe, Plaid, Twilio</span>
+              <span>REST API Design</span>
+              <span>Microservices</span>
+              <span>Multi-Tenant Systems</span>
+              <span>System Design</span>
+              <span>Redis Caching & Query Optimization</span>
+              <span>SQLite</span>
+              <span>Postman / Jira</span>
+              <span>Agile / Scrum</span>
+              <span>Async Remote Collaboration</span>
+              <span>CI/CD</span>
+              <span>AWS (EC2, RDS, S3)</span>
             </div>
           </TechStack>
         </motion.div>

@@ -53,16 +53,16 @@ export const Hero: React.FC = () => {
 
           <motion.div variants={itemVariants}>
             <Title $secondary>
-              I build things for the web.
+              Full-Stack & AI Engineer
             </Title>
           </motion.div>
 
           <motion.div variants={itemVariants}>
             <Description>
-              I'm a <strong>Full-Stack Software Engineer</strong> with 2+ years of experience,
-              specializing in scalable backend systems, RESTful APIs, and AI-driven solutions.
-              Currently working at <strong>Inovaqo</strong>, building GenAI applications with
-              LLM integration, RAG pipelines, and multi-agent systems.
+              I am a <strong>Full-Stack & AI Engineer</strong> with 3+ years building scalable APIs,
+              multi-tenant SaaS platforms, and LLM-powered systems. Currently working remotely for a
+              <strong> US-based company</strong>, I ship production features with Django/FastAPI,
+              React, LangChain, and LangGraph from system design to AWS deployment.
             </Description>
           </motion.div>
 

@@ -86,8 +86,8 @@ export const Contact: React.FC = () => {
 
         <motion.div variants={itemVariants}>
           <p style={{ textAlign: 'center', color: '#cbd5e1', marginBottom: '3rem', fontSize: '1.1rem' }}>
-            I'm always open to discussing new opportunities, collaborations, or just having a chat about technology.
-            Whether you have a question or want to connect, feel free to reach out!
+            I am open to fully remote opportunities across US, EU, and global time zones.
+            If you want to discuss a role, collaboration, or product idea, feel free to reach out.
           </p>
         </motion.div>
 

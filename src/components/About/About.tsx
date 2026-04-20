@@ -46,54 +46,60 @@ export const About: React.FC = () => {
         <motion.div variants={itemVariants} style={{ display: 'flex', gap: '3rem', alignItems: 'flex-start', flexWrap: 'wrap' }}>
           <TextContent>
             <p>
-              Hello! I'm <strong>Arslan Arshad</strong>, a Full-Stack Software Engineer with 2+ years
-              of professional experience. I graduated from <strong>PUCIT</strong> and currently work at
-              <strong> Inovaqo</strong> as a Full Stack Software Engineer, where I build AI-driven
-              applications and scalable backend systems.
+              Hello! I am <strong>Arslan Arshad</strong>, a <strong>Senior Software Engineer</strong> and
+              Full-Stack & AI Engineer with 3+ years of professional experience building scalable
+              backend systems, modern web products, and intelligent AI solutions. I graduated from
+              <strong> PUCIT</strong> and currently work remotely at <strong>Kintetic Intelligence</strong>,
+              a US-based security and investigations SaaS company.
             </p>
             <p>
-              My expertise lies in <strong>Python</strong> (Django REST Framework, FastAPI) and
-              <strong> Node.js</strong>, with a strong focus on scalable backend systems, RESTful APIs,
-              and database optimization. I have hands-on experience in <strong>AI, Generative AI, and
-              Agentic AI</strong>, including LLM integration, RAG pipelines, and multi-agent orchestration.
+              My core stack includes <strong>Python</strong> with Django, Django REST Framework, and
+              FastAPI on the backend, plus <strong>ReactJS</strong> on the frontend. I design
+              high-throughput REST APIs, asynchronous workflows with Celery, and robust data layers using
+              PostgreSQL, MySQL, MongoDB, and Redis.
             </p>
             <p>
-              I specialize in building production-ready applications using <strong>ReactJS</strong> for
-              interactive frontends and <strong>PostgreSQL, MySQL</strong>, and NoSQL databases. I'm
-              passionate about creating intelligent systems that leverage AI to solve complex problems
-              and enhance user experiences.
+              On the AI side, I build real-world systems using <strong>LangChain, LangGraph, RAG
+              pipelines, vector databases (Pinecone/FAISS), and LLM integrations</strong> including
+              LLaMA and Gemini. I focus on reliable, grounded AI features that improve decision-making
+              and reduce manual workload.
             </p>
             <p>
-              I am recognized as a collaborative team player valued for my problem-solving abilities and
-              technical expertise. With a positive mindset, adaptability, and attention to detail, I
-              make meaningful contributions to projects while staying updated with the latest
-              technologies and best practices.
+              I am open to fully remote opportunities across US, EU, and global time zones, and I am
+              proven in async communication, cross-timezone collaboration, and end-to-end ownership from
+              architecture to deployment with strong documentation-first execution.
             </p>
             <p>Here are some technologies I work with:</p>
             <InfoGrid>
               <InfoCard>
-                <span className="arrow">▹</span> Python (Django, FastAPI)
-              </InfoCard>
-              <InfoCard>
-                <span className="arrow">▹</span> Node.js & Express
+                <span className="arrow">▹</span> Python (Django, DRF, FastAPI)
               </InfoCard>
               <InfoCard>
                 <span className="arrow">▹</span> ReactJS & JavaScript
               </InfoCard>
               <InfoCard>
-                <span className="arrow">▹</span> PostgreSQL & MySQL
+                <span className="arrow">▹</span> Celery, Redis, WebSockets
+              </InfoCard>
+              <InfoCard>
+                <span className="arrow">▹</span> PostgreSQL, MySQL, MongoDB
               </InfoCard>
               <InfoCard>
                 <span className="arrow">▹</span> LangChain & LangGraph
               </InfoCard>
               <InfoCard>
-                <span className="arrow">▹</span> LLM Integration & RAG
+                <span className="arrow">▹</span> RAG & Agentic AI
               </InfoCard>
               <InfoCard>
-                <span className="arrow">▹</span> RESTful APIs
+                <span className="arrow">▹</span> AWS, Docker, CI/CD
               </InfoCard>
               <InfoCard>
-                <span className="arrow">▹</span> Git & Deployment
+                <span className="arrow">▹</span> JWT, OAuth2, Stripe, Plaid, Twilio
+              </InfoCard>
+              <InfoCard>
+                <span className="arrow">▹</span> REST API Design, Microservices, System Design
+              </InfoCard>
+              <InfoCard>
+                <span className="arrow">▹</span> Git, Postman, Jira, Agile/Scrum
               </InfoCard>
             </InfoGrid>
           </TextContent>
