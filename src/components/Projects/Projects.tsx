@@ -21,6 +21,13 @@ const projects = [
     external: null,
   },
   {
+    title: 'InsightRAG - Self-Grading Document Q&A Agent',
+    description: 'Built a self-correcting RAG agent with LangGraph that rewrites queries, grades retrieved context, and automatically refines retrieval when evidence is insufficient instead of answering blindly. Designed a multi-signal confidence scoring model combining vector similarity, lexical overlap, and LLM-based relevance grading to route low-confidence answers to explicit fallbacks and reduce hallucination risk.',
+    tech: ['FastAPI', 'LangGraph', 'LangChain', 'FAISS', 'Groq'],
+    github: 'https://github.com/arslanrajpot/',
+    external: null,
+  },
+  {
     title: 'Genuity - Project Management SaaS Platform',
     description: 'Built a Jira-inspired SaaS platform with sprint boards, task management, and role-based access control for multi-member teams. Designed scalable PostgreSQL schemas and REST APIs to support a dynamic React frontend with robust state management and a responsive UX.',
     tech: ['Django REST Framework', 'ReactJS', 'PostgreSQL', 'RBAC', 'REST APIs'],
