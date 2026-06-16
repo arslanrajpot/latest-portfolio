@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
       <Content>
         <Links>
           <a
-            href="https://www.linkedin.com/in/arslan-arshad-033bb5231"
+            href="https://www.linkedin.com/in/arslanarshad-dev/"
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn"
