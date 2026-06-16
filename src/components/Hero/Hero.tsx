@@ -38,7 +38,7 @@ export const Hero: React.FC = () => {
       >
         <TextContent>
           <motion.div variants={itemVariants}>
-            <CodeBlock>console.log('Hello, World!');</CodeBlock>
+            <CodeBlock>const engineer = &#123; ai: true, backend: true, remote: true &#125;;</CodeBlock>
           </motion.div>
 
           <motion.div variants={itemVariants}>
@@ -53,16 +53,18 @@ export const Hero: React.FC = () => {
 
           <motion.div variants={itemVariants}>
             <Title $secondary>
-              Full-Stack & AI Engineer
+              Senior AI & Backend Engineer
             </Title>
           </motion.div>
 
           <motion.div variants={itemVariants}>
             <Description>
-              I am a <strong>Full-Stack & AI Engineer</strong> with 3+ years building scalable APIs,
-              multi-tenant SaaS platforms, and LLM-powered systems. Currently working remotely for a
-              <strong> US-based company</strong>, I ship production features with Django/FastAPI,
-              React, LangChain, and LangGraph from system design to AWS deployment.
+              I build <strong>production-grade agentic AI systems</strong> and high-throughput backend
+              infrastructure. With <strong>4 years</strong> of experience owning the full GenAI lifecycle —
+              from <strong>RAG architecture</strong> and <strong>LangGraph orchestration</strong> to backend
+              optimization and production deployment — I've reduced a 4-hour manual research workflow to
+              under 10 minutes and delivered 35–40% API performance gains in production. Currently building
+              investigative GenAI systems remotely for <strong>Kinetic Intelligence</strong> (Dubai, UAE).
             </Description>
           </motion.div>
 
@@ -81,7 +83,7 @@ export const Hero: React.FC = () => {
           <motion.div variants={itemVariants}>
             <SocialLinks>
               <a
-                href="https://www.linkedin.com/in/arslan-arshad-033bb5231"
+                href="https://www.linkedin.com/in/arslanarshad-dev/"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
