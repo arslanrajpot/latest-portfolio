@@ -86,8 +86,10 @@ export const Contact: React.FC = () => {
 
         <motion.div variants={itemVariants}>
           <p style={{ textAlign: 'center', color: '#cbd5e1', marginBottom: '3rem', fontSize: '1.1rem' }}>
-            I am open to fully remote opportunities across US, EU, and global time zones.
-            If you want to discuss a role, collaboration, or product idea, feel free to reach out.
+            Open to fully remote Software Engineer, Senior Software Engineer, AI Engineer, Backend Engineer,
+            and GenAI Engineer roles across the US, EU, UK, Middle East, and global teams — with 5+ hrs/day
+            overlap with US Eastern / EU Central and immediate availability. If you want to discuss a role,
+            collaboration, or product idea, feel free to reach out.
           </p>
         </motion.div>
 
@@ -114,12 +116,12 @@ export const Contact: React.FC = () => {
                 <FaMapMarkerAlt />
                 <div>
                   <h4>Location</h4>
-                  <p>Lahore, Pakistan</p>
+                  <p>Lahore, Pakistan · Fully Remote</p>
                 </div>
               </InfoItem>
 
               <div className="social-links">
-                <a href="https://www.linkedin.com/in/arslan-arshad-033bb5231" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/arslanarshad-dev/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
                   <FaLinkedin />
                 </a>
                 <a href="https://github.com/arslanrajpot/" target="_blank" rel="noreferrer" aria-label="GitHub">
