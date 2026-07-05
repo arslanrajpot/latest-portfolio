@@ -46,43 +46,36 @@ export const About: React.FC = () => {
         <motion.div variants={itemVariants} style={{ display: 'flex', gap: '3rem', alignItems: 'flex-start', flexWrap: 'wrap' }}>
           <TextContent>
             <p>
-              Hello! I am <strong>Arslan Arshad</strong>, a <strong>Senior Software Engineer</strong> and
-              Full-Stack & AI Engineer with 3+ years of professional experience building scalable
-              backend systems, modern web products, and intelligent AI solutions. I graduated from
-              <strong> PUCIT</strong> and currently work remotely at <strong>Kintetic Intelligence</strong>,
-              a US-based security and investigations SaaS company.
+              Hello! I am <strong>Arslan Arshad</strong>, a <strong>Senior AI & Backend Engineer</strong> with
+              <strong> 4 years</strong> of experience building production-grade agentic systems and
+              high-throughput backend infrastructure. I graduated from <strong>PUCIT</strong> and currently
+              work remotely at <strong>Kinetic Intelligence</strong>, a Dubai, UAE-based investigations and
+              security SaaS company.
+            </p>
+            <p>
+              I own the full <strong>GenAI lifecycle</strong> — from RAG architecture and
+              <strong> LangGraph</strong> multi-agent orchestration to backend optimization, evaluation, and
+              production deployment. On one project, I reduced a <strong>4-hour manual research workflow to
+              under 10 minutes</strong> with a LangGraph multi-agent system, and across production systems
+              I've delivered <strong>35–40% API performance improvements</strong> through caching, indexing,
+              and query optimization.
             </p>
             <p>
               My core stack includes <strong>Python</strong> with Django, Django REST Framework, and
               FastAPI on the backend, plus <strong>ReactJS</strong> on the frontend. I design
               high-throughput REST APIs, asynchronous workflows with Celery, and robust data layers using
-              PostgreSQL, MySQL, MongoDB, and Redis.
+              PostgreSQL, MySQL, MongoDB, and Redis — paired with <strong>LangChain, RAG pipelines, vector
+              databases (Pinecone/FAISS), and LLM integrations</strong> including LLaMA, Gemini, and Groq.
             </p>
             <p>
-              On the AI side, I build real-world systems using <strong>LangChain, LangGraph, RAG
-              pipelines, vector databases (Pinecone/FAISS), and LLM integrations</strong> including
-              LLaMA and Gemini. I focus on reliable, grounded AI features that improve decision-making
-              and reduce manual workload.
-            </p>
-            <p>
-              I am open to fully remote opportunities across US, EU, and global time zones, and I am
-              proven in async communication, cross-timezone collaboration, and end-to-end ownership from
-              architecture to deployment with strong documentation-first execution.
+              I am open to fully remote <strong>Senior Software Engineer, AI Engineer, Backend Engineer,
+              and GenAI Engineer</strong> opportunities across the US, EU, UK, Middle East, and global teams.
+              Proven in async-first collaboration, cross-timezone communication (5+ hrs/day overlap with US
+              Eastern / EU Central), and end-to-end ownership from architecture to deployment — with
+              immediate availability.
             </p>
             <p>Here are some technologies I work with:</p>
             <InfoGrid>
-              <InfoCard>
-                <span className="arrow">▹</span> Python (Django, DRF, FastAPI)
-              </InfoCard>
-              <InfoCard>
-                <span className="arrow">▹</span> ReactJS & JavaScript
-              </InfoCard>
-              <InfoCard>
-                <span className="arrow">▹</span> Celery, Redis, WebSockets
-              </InfoCard>
-              <InfoCard>
-                <span className="arrow">▹</span> PostgreSQL, MySQL, MongoDB
-              </InfoCard>
               <InfoCard>
                 <span className="arrow">▹</span> LangChain & LangGraph
               </InfoCard>
@@ -90,16 +83,44 @@ export const About: React.FC = () => {
                 <span className="arrow">▹</span> RAG & Agentic AI
               </InfoCard>
               <InfoCard>
-                <span className="arrow">▹</span> AWS, Docker, CI/CD
+                <span className="arrow">▹</span> Vector DBs (Pinecone, FAISS)
               </InfoCard>
               <InfoCard>
-                <span className="arrow">▹</span> JWT, OAuth2, Stripe, Plaid, Twilio
+                <span className="arrow">▹</span> Python (Django, DRF, FastAPI)
+              </InfoCard>
+              <InfoCard>
+                <span className="arrow">▹</span> Celery, Redis, WebSockets
+              </InfoCard>
+              <InfoCard>
+                <span className="arrow">▹</span> PostgreSQL, MySQL
               </InfoCard>
               <InfoCard>
                 <span className="arrow">▹</span> REST API Design, Microservices, System Design
               </InfoCard>
               <InfoCard>
+                <span className="arrow">▹</span> JWT, OAuth2, Stripe, Plaid, Twilio
+              </InfoCard>
+              <InfoCard>
+                <span className="arrow">▹</span> AWS, Docker, CI/CD
+              </InfoCard>
+              <InfoCard>
                 <span className="arrow">▹</span> Git, Postman, Jira, Agile/Scrum
+              </InfoCard>
+              <InfoCard>
+                <span className="arrow">▹</span> ReactJS & JavaScript
+              </InfoCard>
+            </InfoGrid>
+
+            <p style={{ marginTop: '2rem' }}>Education & Certifications:</p>
+            <InfoGrid>
+              <InfoCard>
+                <span className="arrow">▹</span> BS Software Engineering — PUCIT, Lahore (2019–2023)
+              </InfoCard>
+              <InfoCard>
+                <span className="arrow">▹</span> Mastering RAG: Build Smart, Data-Driven Apps — IBM Skills Network (2026)
+              </InfoCard>
+              <InfoCard>
+                <span className="arrow">▹</span> Generative AI with Vertex AI: Prompt Design — Google Cloud Skills Boost
               </InfoCard>
             </InfoGrid>
           </TextContent>
