@@ -1,137 +1,232 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import { Container, Content as StyledContent, SectionTitle, ProjectsGrid, ProjectCard, ProjectHeader, ProjectBody, ProjectFooter, TechTags, ExternalLink } from './styles';
+import { FaArrowRight } from 'react-icons/fa';
+import { SectionHeader } from '../shared/SectionHeader';
+import {
+  Container,
+  Grid,
+  Card,
+  CardTop,
+  CardMain,
+  CardStats,
+  TechTags,
+  ContributionToggle,
+  ContributionBody,
+  SignBadge,
+  MoreCard,
+} from './styles';
 
-const Content = motion(StyledContent);
+type Variant = 'feat' | 'inv' | 'plain';
 
-const projects = [
+interface ProjectData {
+  id: string;
+  num: string;
+  kind: string;
+  org: string;
+  span: number;
+  variant: Variant;
+  name: string;
+  headline: string;
+  desc: string;
+  stats: { v: string; l: string }[];
+  tags: string[];
+  github: string;
+  owned: string;
+  delivered: string;
+}
+
+const projects: ProjectData[] = [
   {
-    title: 'AI-Powered Market Research Platform',
-    description: 'Designed a multi-agent AI platform using LangGraph that autonomously plans research, collects evidence, and generates structured market analysis reports. Implemented an end-to-end RAG pipeline with Pinecone to ground LLaMA responses via Groq API in business data and reduce hallucination. Built a modular FastAPI backend with Pydantic validation and service-agent separation, integrated with a React frontend.',
-    tech: ['FastAPI', 'React', 'LangChain', 'LangGraph', 'Pinecone', 'Groq API', 'LLaMA'],
+    id: 'research',
+    num: '01',
+    kind: 'ENTERPRISE AI RESEARCH',
+    org: 'Inovaqo',
+    span: 7,
+    variant: 'feat',
+    name: 'AI-Powered Market Research Platform',
+    headline: 'Four hours of research, done in ten minutes.',
+    desc: 'A multi-agent LangGraph platform that autonomously plans, retrieves, and generates structured market analysis reports for enterprise clients.',
+    stats: [
+      { v: '4h → 10m', l: 'Manual research workflow automated' },
+      { v: '8+', l: 'Enterprise clients deployed across' },
+    ],
+    tags: ['FastAPI', 'React', 'LangGraph', 'LangChain', 'Pinecone', 'Groq API', 'LLaMA'],
     github: 'https://github.com/arslanrajpot/Research_analyst',
-    external: null,
+    owned:
+      'Architected the multi-agent pipeline end to end using LangGraph (planner, researcher, generator agents), a RAG pipeline on Pinecone with semantic chunking, and confidence scoring that automatically rewrites low-confidence queries to reduce hallucination.',
+    delivered:
+      'A modular FastAPI backend with Pydantic validation and service-agent separation, integrated with a React frontend — the automated workflow completes in under 10 minutes and is deployed across 8+ enterprise clients.',
   },
   {
-    title: 'YouTube Talker - AI Video Content Analyst',
-    description: 'Built an end-to-end AI workflow that extracts YouTube transcripts, indexes them with FAISS embeddings, and enables natural language querying over long-form video content. Integrated Google Gemini for context-aware response generation over retrieved transcript chunks for accurate, grounded answers. Created a real-time chat experience to significantly reduce video research time.',
-    tech: ['Flask', 'LangChain', 'Google Gemini', 'FAISS', 'YouTube Data API'],
+    id: 'youtube',
+    num: '02',
+    kind: 'AI VIDEO ANALYSIS',
+    org: 'Personal Project',
+    span: 5,
+    variant: 'plain',
+    name: 'YouTube Talker',
+    headline: 'Chat with any video instead of watching it.',
+    desc: 'An end-to-end GenAI workflow that extracts transcripts, indexes them, and answers natural-language questions grounded in the video content.',
+    stats: [{ v: '45m → 30s', l: 'Video review time per video' }],
+    tags: ['Flask', 'LangChain', 'Google Gemini', 'FAISS', 'YouTube Data API'],
     github: 'https://github.com/arslanrajpot/ai-youtube-video-chatbot',
-    external: null,
+    owned:
+      'Built the end-to-end pipeline: YouTube transcript extraction, LangChain embeddings, FAISS indexing, and Gemini-based context-aware answer generation with source attribution.',
+    delivered:
+      'A real-time chat experience over long-form video content (1–6+ hours), cutting manual review time from 45 minutes to about 30 seconds per video.',
   },
   {
-    title: 'InsightRAG - Self-Grading Document Q&A Agent',
-    description: 'Built a self-correcting RAG agent with LangGraph that rewrites queries, grades retrieved context, and automatically refines retrieval when evidence is insufficient instead of answering blindly. Designed a multi-signal confidence scoring model combining vector similarity, lexical overlap, and LLM-based relevance grading to route low-confidence answers to explicit fallbacks and reduce hallucination risk.',
-    tech: ['FastAPI', 'LangGraph', 'LangChain', 'FAISS', 'Groq'],
-    github: 'https://github.com/arslanrajpot/',
-    external: null,
+    id: 'insightrag',
+    num: '03',
+    kind: 'SELF-CORRECTING RAG',
+    org: 'Personal Project',
+    span: 6,
+    variant: 'inv',
+    name: 'InsightRAG',
+    headline: "Answers that know when they're not sure.",
+    desc: 'A self-grading document Q&A agent built for compliance-critical workflows where confident-sounding hallucinations are unacceptable.',
+    stats: [{ v: '3-signal', l: 'Confidence scoring: vector + lexical + LLM' }],
+    tags: ['FastAPI', 'LangGraph', 'LangChain', 'FAISS', 'Groq'],
+    github: 'https://github.com/arslanrajpot/InsightRAG-Chatbot-',
+    owned:
+      'Designed a self-grading LangGraph agent that rewrites ambiguous queries, retrieves documents, grades context relevance, and runs automatic refinement loops when evidence is insufficient.',
+    delivered:
+      'A multi-signal confidence score combining vector similarity, lexical overlap, and LLM-based assessment that routes low-confidence answers to human review instead of guessing.',
   },
   {
-    title: 'Genuity - Project Management SaaS Platform',
-    description: 'Built a Jira-inspired SaaS platform with sprint boards, task management, and role-based access control for multi-member teams. Designed scalable PostgreSQL schemas and REST APIs to support a dynamic React frontend with robust state management and a responsive UX.',
-    tech: ['Django REST Framework', 'ReactJS', 'PostgreSQL', 'RBAC', 'REST APIs'],
-    github: 'https://github.com/arslanrajpot/',
-    external: null,
-  },
-  {
-    title: 'More Projects on GitHub',
-    description: 'Explore additional production and learning projects across Python, JavaScript, and Java, including web apps, API systems, and AI experiments.',
-    tech: ['Python', 'JavaScript', 'Java', 'Full-Stack Development'],
-    github: 'https://github.com/arslanrajpot/',
-    external: null,
+    id: 'predictor',
+    num: '04',
+    kind: 'RAG · RECRUITING',
+    org: 'Personal Project',
+    span: 6,
+    variant: 'plain',
+    name: 'AI Interview Question Predictor',
+    headline: 'Interview prep, matched to the real job.',
+    desc: 'A RAG tool that predicts likely interview questions from a candidate’s actual CV, target role, and job description.',
+    stats: [{ v: 'Role + level', l: 'Question bank matched by seniority' }],
+    tags: ['Flask', 'Google Gemini', 'RAG', 'Vector Search', 'PDF Parsing'],
+    github: 'https://github.com/arslanrajpot/ai-question-predictor-rag',
+    owned:
+      'Built the CV-parsing and embedding pipeline: PDF text extraction, Gemini semantic embeddings, and a curated question bank segmented by role and experience level.',
+    delivered:
+      'Candidates get a targeted shortlist of interview questions matched to their real background and the job description, instead of a generic one-size-fits-all list.',
   },
 ];
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.12 } },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-    },
-  },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 export const Projects: React.FC = () => {
+  const [open, setOpen] = useState<Record<string, boolean>>({ research: true });
+
+  const toggle = (id: string) => setOpen(prev => ({ ...prev, [id]: !prev[id] }));
+
   return (
-    <Container id="projects">
-      <Content
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-      >
+    <Container id="work">
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} variants={containerVariants}>
         <motion.div variants={itemVariants}>
-          <SectionTitle>
-            <span className="number">04.</span>
-            Featured Projects
-          </SectionTitle>
+          <SectionHeader
+            index={1}
+            total={6}
+            label="Selected work"
+            title="Systems I have shipped."
+            description="Four things I've built end-to-end — architecture, code, and results. Open any card to see exactly what I owned."
+          />
         </motion.div>
 
-        <ProjectsGrid>
-          {projects.map((project, index) => (
-            <motion.div key={index} variants={itemVariants}>
-              <ProjectCard>
-                <ProjectHeader>
-                  <div className="folder-icon">
-                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                      <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                    </svg>
-                  </div>
-                  <div className="project-links">
-                    {project.github && (
-                      <ExternalLink
-                        href={project.github}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label="GitHub"
-                      >
-                        <FaGithub />
-                      </ExternalLink>
-                    )}
-                    {project.external && (
-                      <ExternalLink
-                        href={project.external}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label="External Link"
-                      >
-                        <FaExternalLinkAlt />
-                      </ExternalLink>
-                    )}
-                  </div>
-                </ProjectHeader>
+        <Grid>
+          {projects.map(project => {
+            const isOpen = !!open[project.id];
+            return (
+              <motion.div
+                key={project.id}
+                variants={itemVariants}
+                style={{ gridColumn: `span ${project.span}`, display: 'flex' }}
+              >
+                <Card $variant={project.variant}>
+                  <CardTop className="mono">
+                    <span className="kind">
+                      {project.num} / {project.kind}
+                    </span>
+                    <span className="org">{project.org}</span>
+                  </CardTop>
 
-                <ProjectBody>
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                </ProjectBody>
+                  <CardMain>
+                    <span className="eyebrow">{project.name}</span>
+                    <h3 className="disp">{project.headline}</h3>
+                    <p>{project.desc}</p>
+                  </CardMain>
 
-                <ProjectFooter>
+                  <CardStats>
+                    {project.stats.map(stat => (
+                      <div key={stat.l}>
+                        <div className="stat-value disp">{stat.v}</div>
+                        <div className="stat-label">{stat.l}</div>
+                      </div>
+                    ))}
+                  </CardStats>
+
                   <TechTags>
-                    {project.tech.map((tech, techIndex) => (
-                      <span key={techIndex}>{tech}</span>
+                    {project.tags.map(tag => (
+                      <span key={tag}>{tag}</span>
                     ))}
                   </TechTags>
-                </ProjectFooter>
-              </ProjectCard>
-            </motion.div>
-          ))}
-        </ProjectsGrid>
-      </Content>
+
+                  <div>
+                    <ContributionToggle
+                      aria-expanded={isOpen}
+                      onClick={() => toggle(project.id)}
+                    >
+                      <span className="label">My contribution</span>
+                      <SignBadge $variant={project.variant}>{isOpen ? '–' : '+'}</SignBadge>
+                    </ContributionToggle>
+                    {isOpen && (
+                      <ContributionBody>
+                        <p>
+                          <strong>What I owned. </strong>
+                          {project.owned}
+                        </p>
+                        <p>
+                          <strong>What I delivered. </strong>
+                          {project.delivered}
+                        </p>
+                        <p>
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noreferrer"
+                            style={{ textDecoration: 'underline', fontWeight: 600 }}
+                          >
+                            View source on GitHub →
+                          </a>
+                        </p>
+                      </ContributionBody>
+                    )}
+                  </div>
+                </Card>
+              </motion.div>
+            );
+          })}
+        </Grid>
+
+        <motion.div variants={itemVariants} style={{ marginTop: '24px' }}>
+          <MoreCard href="https://github.com/arslanrajpot/" target="_blank" rel="noreferrer">
+            <div>
+              <strong>More on GitHub</strong>
+              <br />
+              <span className="sub">Additional production and learning projects across Python, JavaScript, and Java.</span>
+            </div>
+            <FaArrowRight />
+          </MoreCard>
+        </motion.div>
+      </motion.div>
     </Container>
   );
 };
-

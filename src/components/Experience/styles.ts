@@ -1,171 +1,181 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
-  padding: 6rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  background: ${props => props.theme.colors.background.secondary};
+  padding: 128px 40px 0;
 
   @media (max-width: ${props => props.theme.breakpoints.tablet}) {
-    padding: 4rem 1.5rem;
+    padding: 80px 1.5rem 0;
   }
 `;
 
-export const Content = styled.div`
+export const RoleList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  border-top: 1px solid ${props => props.theme.colors.borderStrong};
 `;
 
-export const SectionTitle = styled.h2`
-  font-size: 2rem;
-  font-weight: 700;
-  color: ${props => props.theme.colors.text.primary};
-  margin-bottom: 2rem;
+export const RoleRow = styled.div`
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 24px;
+  padding: 40px 0;
+  border-bottom: 1px solid ${props => props.theme.colors.borderStrong};
+
+  @media (max-width: ${props => props.theme.breakpoints.desktop}) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const RoleMeta = styled.div`
+  grid-column: span 4;
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
 
-  .number {
-    font-family: ${props => props.theme.fonts.mono};
-    font-size: 1.5rem;
-    color: ${props => props.theme.colors.primary};
-    font-weight: 400;
+  .dates {
+    padding: 4px 12px;
+    border-radius: ${props => props.theme.borderRadius.pill};
+    background: ${props => props.theme.colors.primary};
+    color: ${props => props.theme.colors.onAccent};
+    font-size: 11.5px;
   }
 
-  &::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: ${props => props.theme.colors.border};
-    margin-left: 1rem;
+  .company {
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: ${props => props.theme.colors.text.primary};
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
-    font-size: 1.5rem;
-  }
-`;
-
-export const Timeline = styled.div`
-  position: relative;
-  padding-left: 2rem;
-
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: ${props => props.theme.colors.border};
+  .place {
+    font-size: 13.5px;
+    color: ${props => props.theme.colors.text.secondary};
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
-    padding-left: 1.5rem;
+  @media (max-width: ${props => props.theme.breakpoints.desktop}) {
+    grid-column: span 1;
   }
 `;
 
-export const TimelineItem = styled.div`
-  position: relative;
-  margin-bottom: 3rem;
-  padding-left: 2rem;
+export const RoleContent = styled.div`
+  grid-column: span 8;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 
-  &::before {
-    content: '';
-    position: absolute;
-    left: -2.5rem;
-    top: 0.5rem;
-    width: 12px;
-    height: 12px;
+  h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: ${props => props.theme.colors.text.primary};
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.desktop}) {
+    grid-column: span 1;
+  }
+`;
+
+export const BulletList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .item {
+    display: flex;
+    gap: 13px;
+  }
+
+  .dot {
+    flex-shrink: 0;
+    width: 7px;
+    height: 7px;
+    margin-top: 8px;
     border-radius: 50%;
     background: ${props => props.theme.colors.primary};
-    border: 2px solid ${props => props.theme.colors.background.secondary};
-    z-index: 1;
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
-    padding-left: 1.5rem;
-    margin-bottom: 2.5rem;
-
-    &::before {
-      left: -1.75rem;
-    }
-  }
-`;
-
-export const TimelineHeader = styled.div`
-  margin-bottom: 1rem;
-`;
-
-export const TimelineRole = styled.h3`
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: ${props => props.theme.colors.text.primary};
-  margin-bottom: 0.25rem;
-`;
-
-export const TimelineCompany = styled.h4`
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: ${props => props.theme.colors.primary};
-  margin-bottom: 0.5rem;
-`;
-
-export const TimelineDate = styled.span`
-  font-family: ${props => props.theme.fonts.mono};
-  font-size: 0.9rem;
-  color: ${props => props.theme.colors.text.secondary};
-`;
-
-export const TimelineContent = styled.div`
-  margin-top: 1rem;
-`;
-
-export const TimelineDescription = styled.div`
-  color: ${props => props.theme.colors.text.secondary};
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-
-  ul {
-    list-style: none;
-    padding: 0;
+  p {
     margin: 0;
-  }
-
-  li {
-    position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 0.75rem;
-
-    &::before {
-      content: '▹';
-      position: absolute;
-      left: 0;
-      color: ${props => props.theme.colors.primary};
-      font-weight: bold;
-    }
+    font-size: 15px;
+    line-height: 1.6;
+    color: ${props => props.theme.colors.text.secondary};
   }
 `;
 
 export const TechTags = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 8px;
+  margin-top: 4px;
 
   span {
     font-family: ${props => props.theme.fonts.mono};
-    font-size: 0.8rem;
-    color: ${props => props.theme.colors.text.secondary};
-    padding: 0.25rem 0.75rem;
-    background: ${props => props.theme.colors.background.primary};
+    font-size: 11.5px;
+    padding: 3px 12px;
+    border-radius: ${props => props.theme.borderRadius.pill};
     border: 1px solid ${props => props.theme.colors.border};
-    border-radius: ${props => props.theme.borderRadius.sm};
-    transition: all 0.3s ease;
-
-    &:hover {
-      color: ${props => props.theme.colors.primary};
-      border-color: ${props => props.theme.colors.primary};
-    }
+    color: ${props => props.theme.colors.text.secondary};
   }
 `;
 
+export const EducationBox = styled.div`
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+  padding: 32px;
+  background: ${props => props.theme.colors.background.inverted};
+  color: ${props => props.theme.colors.invertedText};
+  border-radius: ${props => props.theme.borderRadius.lg};
+
+  .label {
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .heading {
+    font-size: 12px;
+    color: ${props => props.theme.colors.primary};
+  }
+
+  .title {
+    font-size: 26px;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  .body {
+    grid-column: span 8;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .school {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .place {
+    font-size: 13px;
+    opacity: 0.8;
+  }
+
+  .coursework {
+    font-size: 14px;
+    opacity: 0.85;
+    margin-top: 4px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.desktop}) {
+    .label,
+    .body {
+      grid-column: span 1;
+    }
+  }
+`;

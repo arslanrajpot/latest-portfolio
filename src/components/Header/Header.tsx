@@ -1,69 +1,83 @@
 import React, { useState, useEffect } from 'react';
 import { HashLink } from 'react-router-hash-link';
-import { Container, Nav, NavLinks, MobileMenu, ThemeToggle } from './styles';
-import { FaBars, FaTimes, FaSun, FaMoon } from 'react-icons/fa';
+import { Container, Nav, NavLinks, MobileMenu, ThemeToggle, RightGroup } from './styles';
+import { FaBars, FaTimes, FaSun, FaMoon, FaArrowRight } from 'react-icons/fa';
 import { useTheme } from '../../contexts/ThemeContext';
+
+const NAV_ITEMS = [
+  { id: 'work', label: 'Work' },
+  { id: 'services', label: 'Services' },
+  { id: 'architecture', label: 'Architecture' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'about', label: 'About' },
+];
+
+const SECTION_IDS = ['home', ...NAV_ITEMS.map(item => item.id), 'contact'];
 
 export const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
   const { isDark, toggleTheme } = useTheme();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
+    );
+    SECTION_IDS.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
   }, []);
 
   return (
     <Container $isScrolled={isScrolled}>
       <Nav>
         <HashLink smooth to="#home" className="logo">
-          <span className="bracket">&lt;</span>
+          <span className="badge">AA</span>
           <span className="name">Arslan Arshad</span>
-          <span className="bracket">/&gt;</span>
         </HashLink>
 
         <NavLinks $isOpen={isOpen}>
-          <HashLink smooth to="#home" onClick={() => setIsOpen(false)}>
-            Home
+          {NAV_ITEMS.map(item => (
+            <HashLink
+              key={item.id}
+              smooth
+              to={`#${item.id}`}
+              className={`navlink${activeSection === item.id ? ' active' : ''}`}
+              onClick={() => setIsOpen(false)}
+            >
+              {item.label}
+            </HashLink>
+          ))}
+          <HashLink smooth to="#contact" className="talk-btn" onClick={() => setIsOpen(false)}>
+            Let&apos;s talk <FaArrowRight />
           </HashLink>
-          <HashLink smooth to="#about" onClick={() => setIsOpen(false)}>
-            About
-          </HashLink>
-          <HashLink smooth to="#experience" onClick={() => setIsOpen(false)}>
-            Experience
-          </HashLink>
-          <HashLink smooth to="#skills" onClick={() => setIsOpen(false)}>
-            Skills
-          </HashLink>
-          <HashLink smooth to="#projects" onClick={() => setIsOpen(false)}>
-            Projects
-          </HashLink>
-          <HashLink smooth to="#contact" onClick={() => setIsOpen(false)}>
-            Contact
-          </HashLink>
-          <a
-            href="/ARSLAN_ARSHAD.pdf"
-            download="ARSLAN_ARSHAD.pdf"
-            className="resume-btn"
-            onClick={() => setIsOpen(false)}
-          >
-            Resume
-          </a>
         </NavLinks>
 
-        <ThemeToggle onClick={toggleTheme}>
-          {isDark ? <FaMoon /> : <FaSun />}
-        </ThemeToggle>
-
-        <MobileMenu onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <FaTimes /> : <FaBars />}
-        </MobileMenu>
+        <RightGroup>
+          <ThemeToggle onClick={toggleTheme} aria-label="Switch between dark and light theme">
+            {isDark ? <FaMoon /> : <FaSun />}
+            <span>{isDark ? 'Dark' : 'Light'}</span>
+          </ThemeToggle>
+          <MobileMenu onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </MobileMenu>
+        </RightGroup>
       </Nav>
     </Container>
   );
 };
-

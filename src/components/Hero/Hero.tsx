@@ -2,100 +2,101 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { HashLink } from 'react-router-hash-link';
 import { FaLinkedin, FaGithub, FaWhatsapp, FaInstagram } from 'react-icons/fa';
-import { HiOutlineArrowDown } from 'react-icons/hi';
-import { Container, Content as StyledContent, TextContent, Title, Subtitle, Description, ButtonGroup, SocialLinks, CodeBlock } from './styles';
+import { HiOutlineArrowRight, HiOutlineArrowDown } from 'react-icons/hi';
+// @ts-ignore
+import arslanImage from '../../assets/Arslan_Arshad_Profile.jpg';
+import {
+  Container,
+  GuideLines,
+  Glow,
+  Content as StyledContent,
+  TextContent,
+  Eyebrow,
+  Title,
+  Description,
+  ButtonGroup,
+  MetaLine,
+  SocialLinks,
+  PortraitCol,
+  PortraitWrapper,
+  PortraitBacking,
+  PortraitFrame,
+  NowCard,
+} from './styles';
 
 const Content = motion(StyledContent);
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-    },
-  },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 export const Hero: React.FC = () => {
   return (
     <Container id="home">
-      <Content
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
+      <GuideLines>
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+      </GuideLines>
+      <Glow />
+
+      <Content variants={containerVariants} initial="hidden" animate="visible">
         <TextContent>
           <motion.div variants={itemVariants}>
-            <CodeBlock>const engineer = &#123; ai: true, backend: true, remote: true &#125;;</CodeBlock>
+            <Eyebrow className="mono">
+              <span className="dot" />
+              <span>Senior Backend &amp; AI Engineer</span>
+            </Eyebrow>
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <Subtitle>Hi, my name is</Subtitle>
-          </motion.div>
-
-          <motion.div variants={itemVariants}>
-            <Title>
-              <span className="highlight">Arslan Arshad.</span>
-            </Title>
-          </motion.div>
-
-          <motion.div variants={itemVariants}>
-            <Title $secondary>
-              Senior AI & Backend Engineer
+            <Title className="disp">
+              Production backend systems, built <span className="pill">end to end.</span>
             </Title>
           </motion.div>
 
           <motion.div variants={itemVariants}>
             <Description>
-              I build <strong>production-grade agentic AI systems</strong> and high-throughput backend
-              infrastructure. With <strong>4 years</strong> of experience owning the full GenAI lifecycle —
-              from <strong>RAG architecture</strong> and <strong>LangGraph orchestration</strong> to backend
-              optimization and production deployment — I've reduced a 4-hour manual research workflow to
-              under 10 minutes and delivered 35–40% API performance gains in production. Currently building
-              investigative GenAI systems remotely for <strong>Kinetic Intelligence</strong> (Dubai, UAE).
+              I architect <strong>Django and FastAPI backends</strong>, <strong>multi-agent LangGraph systems</strong>,
+              and RAG pipelines, and I own the decisions from database schema to production deployment. Currently
+              leading backend and AI-integration engineering for a 4-service platform at{' '}
+              <strong>Kinetic Intelligence</strong>.
             </Description>
           </motion.div>
 
           <motion.div variants={itemVariants}>
             <ButtonGroup>
-              <HashLink smooth to="#contact" className="primary-btn">
-                Get In Touch
+              <HashLink smooth to="#work" className="btn btn-primary">
+                Explore my work <HiOutlineArrowRight />
               </HashLink>
-              <HashLink smooth to="#projects" className="secondary-btn">
-                View My Work
-                <HiOutlineArrowDown />
-              </HashLink>
+              <a
+                className="btn btn-outline"
+                href="/ARSLAN_ARSHAD.pdf"
+                download="ARSLAN_ARSHAD.pdf"
+              >
+                Download résumé <HiOutlineArrowDown />
+              </a>
             </ButtonGroup>
           </motion.div>
 
           <motion.div variants={itemVariants}>
+            <MetaLine className="mono">Python · Django · FastAPI &nbsp;/&nbsp; Lahore, Pakistan · Remote</MetaLine>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
             <SocialLinks>
-              <a
-                href="https://www.linkedin.com/in/arslanarshad-dev/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn"
-              >
+              <a href="https://www.linkedin.com/in/arslanarshad-dev/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
                 <FaLinkedin />
               </a>
-              <a
-                href="https://github.com/arslanrajpot/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="GitHub"
-              >
+              <a href="https://github.com/arslanrajpot/" target="_blank" rel="noreferrer" aria-label="GitHub">
                 <FaGithub />
               </a>
               <a
@@ -106,42 +107,29 @@ export const Hero: React.FC = () => {
               >
                 <FaWhatsapp />
               </a>
-              <a
-                href="https://instagram.com/arslan_arshad23"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram"
-              >
+              <a href="https://instagram.com/arslan_arshad23" target="_blank" rel="noreferrer" aria-label="Instagram">
                 <FaInstagram />
               </a>
             </SocialLinks>
           </motion.div>
         </TextContent>
 
-        <motion.div
-          variants={itemVariants}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginTop: '3rem',
-          }}
-        >
-          <motion.div
-            animate={{
-              y: [0, 10, 0],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          >
-            <HiOutlineArrowDown size={32} style={{ opacity: 0.5 }} />
+        <PortraitCol>
+          <motion.div variants={itemVariants}>
+            <PortraitWrapper>
+              <PortraitBacking />
+              <PortraitFrame>
+                <img src={arslanImage} alt="Arslan Arshad" />
+              </PortraitFrame>
+              <NowCard>
+                <span className="label mono">Now</span>
+                <span className="role">Senior Software Engineer</span>
+                <span className="place">Kinetic Intelligence · Dubai, UAE</span>
+              </NowCard>
+            </PortraitWrapper>
           </motion.div>
-        </motion.div>
+        </PortraitCol>
       </Content>
     </Container>
   );
 };
-

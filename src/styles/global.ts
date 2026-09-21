@@ -16,10 +16,27 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${({ theme }) => theme.fonts.primary};
     background-color: ${({ theme }) => theme.colors.background.primary};
     color: ${({ theme }) => theme.colors.text.primary};
-    line-height: 1.6;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .disp {
+    font-family: ${({ theme }) => theme.fonts.display};
+    font-weight: 700;
+    letter-spacing: -0.04em;
+  }
+
+  .mono {
+    font-family: ${({ theme }) => theme.fonts.mono};
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .monoc {
+    font-family: ${({ theme }) => theme.fonts.mono};
   }
 
   ::selection {

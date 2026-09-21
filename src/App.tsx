@@ -4,10 +4,13 @@ import { GlobalStyle } from './styles/global';
 import { ThemeContextProvider, useTheme } from './contexts/ThemeContext';
 import { Header } from './components/Header/Header';
 import { Hero } from './components/Hero/Hero';
+import { Stats } from './components/Stats/Stats';
 import { About } from './components/About/About';
 import { Experience } from './components/Experience/Experience';
 import { Skills } from './components/Skills/Skills';
 import { Projects } from './components/Projects/Projects';
+import { Services } from './components/Services/Services';
+import { Architecture } from './components/Architecture/Architecture';
 import { Contact } from './components/Contact/Contact';
 import { Footer } from './components/Footer/Footer';
 import { ToastContainer } from 'react-toastify';
@@ -21,10 +24,13 @@ const AppContent: React.FC = () => {
       <GlobalStyle />
       <Header />
       <Hero />
-      <About />
+      <Stats />
+      <Projects />
+      <Services />
+      <Architecture />
       <Experience />
       <Skills />
-      <Projects />
+      <About />
       <Contact />
       <Footer />
       <ToastContainer

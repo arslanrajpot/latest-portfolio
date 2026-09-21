@@ -1,136 +1,82 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-// @ts-ignore
-import arslanImage from '../../assets/Arslan_Arshad(Pic).jpg';
-import { Container, Content as StyledContent, SectionTitle, TextContent, ImageWrapper, Image, InfoGrid, InfoCard } from './styles';
+import { Container, Kicker, Layout, Headline, TextCol, FactsGrid, Fact } from './styles';
 
-const Content = motion(StyledContent);
+const facts = [
+  { k: 'BASED IN', v: 'Lahore, Pakistan' },
+  { k: 'CURRENT ROLE', v: 'Senior Software Engineer, Kinetic Intelligence' },
+  { k: 'EDUCATION', v: 'BS Software Engineering, PUCIT' },
+  { k: 'CORE STACK', v: 'Python, Django, FastAPI' },
+];
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-    },
-  },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
+
+const MotionHeadline = motion(Headline);
+const MotionTextCol = motion(TextCol);
 
 export const About: React.FC = () => {
   return (
     <Container id="about">
-      <Content
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-      >
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={containerVariants}>
         <motion.div variants={itemVariants}>
-          <SectionTitle>
-            <span className="number">01.</span>
-            About Me
-          </SectionTitle>
+          <Kicker className="mono">
+            <span>
+              <span className="idx">[06]</span>&nbsp; About
+            </span>
+            <span className="count">06 / 06</span>
+          </Kicker>
         </motion.div>
 
-        <motion.div variants={itemVariants} style={{ display: 'flex', gap: '3rem', alignItems: 'flex-start', flexWrap: 'wrap' }}>
-          <TextContent>
-            <p>
-              Hello! I am <strong>Arslan Arshad</strong>, a <strong>Senior AI & Backend Engineer</strong> with
-              <strong> 4 years</strong> of experience building production-grade agentic systems and
-              high-throughput backend infrastructure. I graduated from <strong>PUCIT</strong> and currently
-              work remotely at <strong>Kinetic Intelligence</strong>, a Dubai, UAE-based investigations and
-              security SaaS company.
-            </p>
-            <p>
-              I own the full <strong>GenAI lifecycle</strong> — from RAG architecture and
-              <strong> LangGraph</strong> multi-agent orchestration to backend optimization, evaluation, and
-              production deployment. On one project, I reduced a <strong>4-hour manual research workflow to
-              under 10 minutes</strong> with a LangGraph multi-agent system, and across production systems
-              I've delivered <strong>35–40% API performance improvements</strong> through caching, indexing,
-              and query optimization.
-            </p>
-            <p>
-              My core stack includes <strong>Python</strong> with Django, Django REST Framework, and
-              FastAPI on the backend, plus <strong>ReactJS</strong> on the frontend. I design
-              high-throughput REST APIs, asynchronous workflows with Celery, and robust data layers using
-              PostgreSQL, MySQL, MongoDB, and Redis — paired with <strong>LangChain, RAG pipelines, vector
-              databases (Pinecone/FAISS), and LLM integrations</strong> including LLaMA, Gemini, and Groq.
-            </p>
-            <p>
-              I am open to fully remote <strong>Senior Software Engineer, AI Engineer, Backend Engineer,
-              and GenAI Engineer</strong> opportunities across the US, EU, UK, Middle East, and global teams.
-              Proven in async-first collaboration, cross-timezone communication (5+ hrs/day overlap with US
-              Eastern / EU Central), and end-to-end ownership from architecture to deployment — with
-              immediate availability.
-            </p>
-            <p>Here are some technologies I work with:</p>
-            <InfoGrid>
-              <InfoCard>
-                <span className="arrow">▹</span> LangChain & LangGraph
-              </InfoCard>
-              <InfoCard>
-                <span className="arrow">▹</span> RAG & Agentic AI
-              </InfoCard>
-              <InfoCard>
-                <span className="arrow">▹</span> Vector DBs (Pinecone, FAISS)
-              </InfoCard>
-              <InfoCard>
-                <span className="arrow">▹</span> Python (Django, DRF, FastAPI)
-              </InfoCard>
-              <InfoCard>
-                <span className="arrow">▹</span> Celery, Redis, WebSockets
-              </InfoCard>
-              <InfoCard>
-                <span className="arrow">▹</span> PostgreSQL, MySQL
-              </InfoCard>
-              <InfoCard>
-                <span className="arrow">▹</span> REST API Design, Microservices, System Design
-              </InfoCard>
-              <InfoCard>
-                <span className="arrow">▹</span> JWT, OAuth2, Stripe, Plaid, Twilio
-              </InfoCard>
-              <InfoCard>
-                <span className="arrow">▹</span> AWS, Docker, CI/CD
-              </InfoCard>
-              <InfoCard>
-                <span className="arrow">▹</span> Git, Postman, Jira, Agile/Scrum
-              </InfoCard>
-              <InfoCard>
-                <span className="arrow">▹</span> ReactJS & JavaScript
-              </InfoCard>
-            </InfoGrid>
+        <Layout>
+          <MotionHeadline variants={itemVariants}>
+            <h2 className="disp">
+              From database schema to <span className="pill">production AI.</span>
+            </h2>
+          </MotionHeadline>
 
-            <p style={{ marginTop: '2rem' }}>Education & Certifications:</p>
-            <InfoGrid>
-              <InfoCard>
-                <span className="arrow">▹</span> BS Software Engineering — PUCIT, Lahore (2019–2023)
-              </InfoCard>
-              <InfoCard>
-                <span className="arrow">▹</span> Mastering RAG: Build Smart, Data-Driven Apps — IBM Skills Network (2026)
-              </InfoCard>
-              <InfoCard>
-                <span className="arrow">▹</span> Generative AI with Vertex AI: Prompt Design — Google Cloud Skills Boost
-              </InfoCard>
-            </InfoGrid>
-          </TextContent>
+          <MotionTextCol variants={itemVariants}>
+              <p>
+                I am a <strong>Senior Backend &amp; AI Engineer</strong> with <strong>6+ years</strong> of experience
+                architecting and shipping production-grade Python systems, from Django and FastAPI backends to
+                multi-agent LangGraph pipelines and RAG systems.
+              </p>
+              <p>
+                I currently work remotely at <strong>Kinetic Intelligence</strong>, a Dubai, UAE-based company, where I
+                lead backend and AI-integration engineering for a 4-service microservices platform — owning the
+                identity trust model, background processing, and the AI-chatbot bridging layer that connects the
+                product to a generative AI assistant.
+              </p>
+              <p>
+                Earlier, at Inovaqo, I built a production multi-agent research system that collapsed a 4-hour manual
+                workflow into under 10 minutes for 8+ enterprise clients, and delivered an estimated{' '}
+                <strong>35–40% API performance improvement</strong> through caching, indexing, and query
+                optimization across multi-tenant SaaS backends.
+              </p>
+              <p>
+                I am open to fully remote <strong>Senior Software Engineer, Backend Engineer, and AI Engineer</strong>{' '}
+                roles across the US, EU, UK, Middle East, and global teams, with 5+ hrs/day overlap with US
+                Eastern / EU Central and immediate availability.
+              </p>
 
-          <ImageWrapper>
-            <Image src={arslanImage} alt="Arslan Arshad" />
-          </ImageWrapper>
-        </motion.div>
-      </Content>
+              <FactsGrid>
+                {facts.map(fact => (
+                  <Fact key={fact.k}>
+                    <span className="k mono">{fact.k}</span>
+                    <span className="v">{fact.v}</span>
+                  </Fact>
+                ))}
+              </FactsGrid>
+          </MotionTextCol>
+        </Layout>
+      </motion.div>
     </Container>
   );
 };
-

@@ -1,151 +1,61 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
-  padding: 6rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  background: ${props => props.theme.colors.background.secondary};
+  padding: 128px 40px 0;
 
   @media (max-width: ${props => props.theme.breakpoints.tablet}) {
-    padding: 4rem 1.5rem;
+    padding: 80px 1.5rem 0;
   }
 `;
 
-export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-`;
-
-export const SectionTitle = styled.h2`
-  font-size: 2rem;
-  font-weight: 700;
-  color: ${props => props.theme.colors.text.primary};
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-
-  .number {
-    font-family: ${props => props.theme.fonts.mono};
-    font-size: 1.5rem;
-    color: ${props => props.theme.colors.primary};
-    font-weight: 400;
-  }
-
-  &::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: ${props => props.theme.colors.border};
-    margin-left: 1rem;
-  }
-
-  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
-    font-size: 1.5rem;
-  }
-`;
-
-export const SkillsGrid = styled.div`
+export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
 
-  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1.5rem;
+  @media (max-width: ${props => props.theme.breakpoints.desktop}) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    grid-template-columns: 1fr;
   }
 `;
 
-export const SkillCard = styled.div`
-  background: ${props => props.theme.colors.background.primary};
+export const GroupCard = styled.div`
+  padding: 26px;
+  background: ${props => props.theme.colors.background.card};
   border: 1px solid ${props => props.theme.colors.border};
   border-radius: ${props => props.theme.borderRadius.lg};
-  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  transition: all 0.3s ease;
+  gap: 16px;
+  transition: border-color 0.25s ease, transform 0.25s ease;
 
   &:hover {
-    transform: translateY(-5px);
     border-color: ${props => props.theme.colors.primary};
-    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+    transform: translateY(-3px);
   }
 
-  .skill-bar {
-    width: 100%;
-    height: 8px;
-    background: ${props => props.theme.colors.background.secondary};
-    border-radius: ${props => props.theme.borderRadius.sm};
-    overflow: hidden;
-    position: relative;
+  .heading {
+    font-size: 12px;
+    color: ${props => props.theme.colors.primary};
   }
 
-  .skill-progress {
-    height: 100%;
-    border-radius: ${props => props.theme.borderRadius.sm};
-    transition: width 1s ease;
-  }
-
-  .skill-level {
-    font-size: 0.875rem;
-    color: ${props => props.theme.colors.text.secondary};
-    font-weight: 600;
-  }
-`;
-
-export const SkillIcon = styled.div<{ $color: string }>`
-  font-size: 3rem;
-  color: ${props => props.$color};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const SkillName = styled.h3`
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: ${props => props.theme.colors.text.primary};
-  text-align: center;
-`;
-
-export const TechStack = styled.div`
-  background: ${props => props.theme.colors.background.primary};
-  border: 1px solid ${props => props.theme.colors.border};
-  border-radius: ${props => props.theme.borderRadius.lg};
-  padding: 2rem;
-
-  h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: ${props => props.theme.colors.text.primary};
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-
-  .tech-list {
+  .tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
+    gap: 8px;
+  }
 
-    span {
-      background: ${props => props.theme.colors.background.secondary};
-      border: 1px solid ${props => props.theme.colors.border};
-      padding: 0.75rem 1.5rem;
-      border-radius: ${props => props.theme.borderRadius.md};
-      color: ${props => props.theme.colors.text.secondary};
-      font-weight: 500;
-      transition: all 0.3s ease;
-
-      &:hover {
-        border-color: ${props => props.theme.colors.primary};
-        color: ${props => props.theme.colors.primary};
-        transform: translateY(-2px);
-      }
-    }
+  .tags span {
+    font-family: ${props => props.theme.fonts.mono};
+    font-size: 11.5px;
+    padding: 3px 12px;
+    border-radius: ${props => props.theme.borderRadius.pill};
+    border: 1px solid ${props => props.theme.colors.border};
+    color: ${props => props.theme.colors.text.secondary};
   }
 `;
-

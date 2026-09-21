@@ -1,199 +1,299 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8rem 2rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
   position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
-    pointer-events: none;
-  }
 
   @media (max-width: ${props => props.theme.breakpoints.tablet}) {
-    padding: 6rem 1.5rem 3rem;
+    padding: 0 1.5rem;
   }
+`;
+
+export const GuideLines = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1120px;
+  max-width: 100%;
+  margin-left: -560px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 0;
+
+  span {
+    width: 1px;
+    background: ${props => props.theme.colors.guide};
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.desktop}) {
+    display: none;
+  }
+`;
+
+export const Glow = styled.div`
+  position: absolute;
+  top: -100px;
+  right: -120px;
+  width: 640px;
+  height: 640px;
+  background: radial-gradient(circle, ${props => props.theme.colors.glow} 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
 `;
 
 export const Content = styled.div`
-  max-width: 1200px;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 24px;
+  align-items: center;
+  padding: 140px 0 80px;
+  position: relative;
   z-index: 1;
+
+  @media (max-width: ${props => props.theme.breakpoints.desktop}) {
+    grid-template-columns: 1fr;
+    padding: 120px 0 60px;
+  }
 `;
 
 export const TextContent = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-`;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 
-export const CodeBlock = styled.div`
-  font-family: ${props => props.theme.fonts.mono};
-  font-size: 0.9rem;
-  color: ${props => props.theme.colors.primary};
-  margin-bottom: 1.5rem;
-  opacity: 0.8;
-
-  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
-    font-size: 0.8rem;
+  @media (max-width: ${props => props.theme.breakpoints.desktop}) {
+    order: 2;
   }
 `;
 
-export const Subtitle = styled.p`
-  font-size: 1.25rem;
-  color: ${props => props.theme.colors.primary};
-  margin-bottom: 1rem;
-  font-weight: 500;
+export const Eyebrow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
 
-  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
-    font-size: 1rem;
+  .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: ${props => props.theme.colors.primary};
+    animation: heroPulse 1.6s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes heroPulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.25;
+    }
   }
 `;
 
-export const Title = styled.h1<{ $secondary?: boolean }>`
-  font-size: ${props => (props.$secondary ? '3.5rem' : '4.5rem')};
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: ${props => (props.$secondary ? '1.5rem' : '0.5rem')};
+export const Title = styled.h1`
+  margin: 0;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
   color: ${props => props.theme.colors.text.primary};
 
-  .highlight {
-    background: linear-gradient(135deg, ${props => props.theme.colors.primary} 0%, ${props => props.theme.colors.secondary} 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .pill {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 0 16px 6px;
+    background: ${props => props.theme.colors.secondary};
+    color: ${props => props.theme.colors.onBright};
+    border-radius: 20px;
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
-    font-size: ${props => (props.$secondary ? '2rem' : '2.5rem')};
+  @media (max-width: ${props => props.theme.breakpoints.desktop}) {
+    font-size: 56px;
   }
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}) {
-    font-size: ${props => (props.$secondary ? '1.75rem' : '2rem')};
+    font-size: 40px;
   }
 `;
 
 export const Description = styled.p`
-  font-size: 1.125rem;
+  margin: 0;
+  max-width: 560px;
+  font-size: 18px;
+  line-height: 1.6;
   color: ${props => props.theme.colors.text.secondary};
-  line-height: 1.8;
-  max-width: 600px;
-  margin: 0 auto 2.5rem;
-  
+
   strong {
     color: ${props => props.theme.colors.text.primary};
     font-weight: 600;
-  }
-
-  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
-    font-size: 1rem;
-    margin-bottom: 2rem;
   }
 `;
 
 export const ButtonGroup = styled.div`
   display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  margin-bottom: 3rem;
+  align-items: center;
+  gap: 16px;
   flex-wrap: wrap;
 
-  .primary-btn,
-  .secondary-btn {
-    padding: 1rem 2rem;
-    border-radius: ${props => props.theme.borderRadius.md};
-    font-weight: 600;
-    font-size: 1rem;
+  .btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
-    text-decoration: none;
+    gap: 10px;
+    height: 50px;
+    padding: 0 24px;
+    font-size: 14.5px;
+    font-weight: 600;
+    border-radius: ${props => props.theme.borderRadius.pill};
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    border: 1px solid transparent;
   }
 
-  .primary-btn {
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: ${props => props.theme.shadows.sm};
+  }
+
+  .btn-primary {
     background: ${props => props.theme.colors.primary};
-    color: white;
-    border: 2px solid ${props => props.theme.colors.primary};
-
-    &:hover {
-      background: ${props => props.theme.colors.primaryDark};
-      border-color: ${props => props.theme.colors.primaryDark};
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
-    }
+    color: ${props => props.theme.colors.onAccent};
   }
 
-  .secondary-btn {
+  .btn-outline {
     background: transparent;
     color: ${props => props.theme.colors.text.primary};
-    border: 2px solid ${props => props.theme.colors.border};
-
-    &:hover {
-      border-color: ${props => props.theme.colors.primary};
-      color: ${props => props.theme.colors.primary};
-      transform: translateY(-2px);
-    }
+    border-color: ${props => props.theme.colors.border};
   }
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}) {
     flex-direction: column;
-    width: 100%;
+    align-items: stretch;
 
-    .primary-btn,
-    .secondary-btn {
-      width: 100%;
+    .btn {
       justify-content: center;
     }
   }
 `;
 
+export const MetaLine = styled.div`
+  font-size: 12px;
+  color: ${props => props.theme.colors.text.muted};
+`;
+
 export const SocialLinks = styled.div`
   display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  margin-top: 2rem;
+  gap: 0.9rem;
+  margin-top: 4px;
 
   a {
-    width: 50px;
-    height: 50px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
-    background: ${props => props.theme.colors.background.secondary};
-    border: 2px solid ${props => props.theme.colors.border};
+    background: ${props => props.theme.colors.background.tertiary};
+    border: 1px solid ${props => props.theme.colors.border};
     display: flex;
     align-items: center;
     justify-content: center;
     color: ${props => props.theme.colors.text.secondary};
-    font-size: 1.25rem;
+    font-size: 1.05rem;
     transition: all 0.3s ease;
 
     &:hover {
       border-color: ${props => props.theme.colors.primary};
       color: ${props => props.theme.colors.primary};
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
-    }
-  }
-
-  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
-    gap: 1rem;
-
-    a {
-      width: 45px;
-      height: 45px;
-      font-size: 1.1rem;
+      transform: translateY(-3px);
     }
   }
 `;
 
+export const PortraitCol = styled.div`
+  display: flex;
+  justify-content: flex-end;
+
+  @media (max-width: ${props => props.theme.breakpoints.desktop}) {
+    order: 1;
+    justify-content: center;
+  }
+`;
+
+export const PortraitWrapper = styled.div`
+  position: relative;
+  width: 300px;
+  height: 380px;
+  margin-right: 18px;
+
+  @media (max-width: ${props => props.theme.breakpoints.desktop}) {
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+`;
+
+export const PortraitBacking = styled.div`
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 300px;
+  height: 380px;
+  background: ${props => props.theme.colors.secondary};
+  border-radius: 32px;
+`;
+
+export const PortraitFrame = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 300px;
+  height: 380px;
+  background: ${props => props.theme.colors.background.secondary};
+  border: 1px solid ${props => props.theme.colors.border};
+  border-radius: 32px;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 22%;
+  }
+`;
+
+export const NowCard = styled.div`
+  position: absolute;
+  left: -38px;
+  bottom: -24px;
+  padding: 14px 18px;
+  background: ${props => props.theme.colors.background.inverted};
+  color: ${props => props.theme.colors.invertedText};
+  border: 1px solid ${props => props.theme.colors.borderStrong};
+  border-radius: 18px;
+  box-shadow: ${props => props.theme.shadows.lg};
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 210px;
+
+  .label {
+    font-size: 11px;
+    color: ${props => props.theme.colors.primary};
+  }
+
+  .role {
+    font-size: 14.5px;
+    font-weight: 600;
+  }
+
+  .place {
+    font-size: 12.5px;
+    opacity: 0.8;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    left: 0;
+  }
+`;
