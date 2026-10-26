@@ -5,6 +5,7 @@ export const Container = styled.section`
   margin: 0 auto;
   padding: 0 40px;
   position: relative;
+  overflow: hidden;
 
   @media (max-width: ${props => props.theme.breakpoints.tablet}) {
     padding: 0 1.5rem;

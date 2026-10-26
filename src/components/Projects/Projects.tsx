@@ -111,6 +111,27 @@ const projects: ProjectData[] = [
     delivered:
       'Candidates get a targeted shortlist of interview questions matched to their real background and the job description, instead of a generic one-size-fits-all list.',
   },
+  {
+    id: 'reviewpulse',
+    num: '05',
+    kind: 'AI SAAS · REVIEW INTELLIGENCE',
+    org: 'Personal Project',
+    span: 12,
+    variant: 'plain',
+    name: 'ReviewPulse',
+    headline: 'Real reviews in, grounded answers out — not AI guesswork.',
+    desc: "A subscription SaaS platform that turns a restaurant's public reviews into a RAG-grounded Q&A assistant and analytics dashboard, with Stripe-metered billing engineered to survive upgrades, retries and cancellations.",
+    stats: [
+      { v: '50 × 5', l: 'Reviews collected per restaurant, across auto-discovered competitors' },
+      { v: '0 overspend', l: 'Usage metering stays atomic under concurrent requests' },
+    ],
+    tags: ['FastAPI', 'LangChain', 'OpenAI GPT-4o', 'Pinecone', 'Stripe', 'Next.js 15', 'PostgreSQL'],
+    github: 'https://github.com/arslanrajpot/restaurant-reviews',
+    owned:
+      "Architected the full platform: onboarding that auto-discovers a restaurant and its competitors via Google Maps, a LangChain RAG agent on GPT-4o grounded in real review data, Stripe subscription billing with prorated upgrades and webhook-driven tier sync, and atomic usage metering that can't be overspent by concurrent requests.",
+    delivered:
+      "A production-architected SaaS platform where answers stay grounded in a restaurant's real reviews, billing stays correct through every Stripe edge case, and usage limits hold even under concurrent load.",
+  },
 ];
 
 const containerVariants = {
@@ -137,7 +158,7 @@ export const Projects: React.FC = () => {
             total={6}
             label="Selected work"
             title="Systems I have shipped."
-            description="Four things I've built end-to-end — architecture, code, and results. Open any card to see exactly what I owned."
+            description="Five things I've built end-to-end — architecture, code, and results. Open any card to see exactly what I owned."
           />
         </motion.div>
 

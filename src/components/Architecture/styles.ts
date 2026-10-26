@@ -21,6 +21,15 @@ export const TabBar = styled.div`
   background: ${props => props.theme.colors.background.card};
   border: 1px solid ${props => props.theme.colors.border};
   border-radius: ${props => props.theme.borderRadius.pill};
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    width: 100%;
+    border-radius: ${props => props.theme.borderRadius.md};
+
+    button {
+      flex: 1 1 auto;
+    }
+  }
 `;
 
 export const Tab = styled.button<{ $active: boolean }>`
